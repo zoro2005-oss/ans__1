@@ -133,6 +133,7 @@ export const contactDetails = {
   phone: "+229 01 90 00 31 31",
   /** Numéro au format international, sans `+`, pour les liens wa.me. */
   whatsapp: "2290190003131",
+  email: "poviessivoucherias@gmail.com",
   city: "Cotonou, Bénin",
   hours: "Réponse du lundi au samedi, 8h–20h",
 } as const;

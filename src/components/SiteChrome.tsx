@@ -310,7 +310,21 @@ export function Footer() {
       </div>
 
       <div className="mx-auto mt-14 flex max-w-[1440px] flex-col gap-3 border-t border-border pt-6 text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <span>© {new Date().getFullYear()} Réveillon 31 — vitrine de démonstration</span>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+          <span>© {new Date().getFullYear()} Réveillon 31 — vitrine de démonstration</span>
+          <a
+            className="normal-case tracking-normal text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+            href={`mailto:${contactDetails.email}`}
+          >
+            {contactDetails.email}
+          </a>
+          <a
+            className="normal-case tracking-normal text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+            href="tel:0151033466"
+          >
+            01 51 03 34 66
+          </a>
+        </div>
         <span className="text-primary">Mode démo : aucun paiement réel</span>
       </div>
     </footer>
