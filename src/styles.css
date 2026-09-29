@@ -1,0 +1,414 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-champagne: var(--champagne);
+  --color-violet: var(--violet);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.975 0.012 86);
+  --foreground: oklch(0.17 0.015 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.015 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.17 0.015 285);
+  --primary: oklch(0.54 0.12 74);
+  --primary-foreground: oklch(0.99 0.005 90);
+  --secondary: oklch(0.93 0.018 86);
+  --secondary-foreground: oklch(0.24 0.02 285);
+  --muted: oklch(0.94 0.012 86);
+  --muted-foreground: oklch(0.44 0.02 285);
+  --accent: oklch(0.5 0.24 300);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.21 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.86 0.022 84 / 60%);
+  --input: oklch(0.9 0.015 86);
+  --ring: oklch(0.54 0.12 74);
+  --gold: oklch(0.54 0.12 74);
+  --champagne: oklch(0.78 0.075 84);
+  --violet: oklch(0.5 0.24 300);
+  --success: oklch(0.52 0.14 152);
+  --success-foreground: oklch(0.99 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0.006 86);
+  --sidebar-foreground: oklch(0.2 0.02 285);
+  --sidebar-primary: oklch(0.54 0.12 74);
+  --sidebar-primary-foreground: oklch(0.99 0.005 90);
+  --sidebar-accent: oklch(0.94 0.012 86);
+  --sidebar-accent-foreground: oklch(0.2 0.02 285);
+  --sidebar-border: oklch(0.88 0.018 84);
+  --sidebar-ring: oklch(0.54 0.12 74);
+  --hero-veil: oklch(0.08 0.01 285 / 70%);
+  --hero-veil-strong: oklch(0.08 0.01 285 / 92%);
+}
+
+.dark {
+  --radius: 0.25rem;
+  --background: oklch(0.105 0.012 285);
+  --foreground: oklch(0.95 0.02 88);
+  --card: oklch(0.145 0.015 285);
+  --card-foreground: oklch(0.95 0.02 88);
+  --popover: oklch(0.145 0.015 285);
+  --popover-foreground: oklch(0.95 0.02 88);
+  --primary: oklch(0.78 0.105 84);
+  --primary-foreground: oklch(0.12 0.01 285);
+  --secondary: oklch(0.185 0.02 286);
+  --secondary-foreground: oklch(0.95 0.02 88);
+  --muted: oklch(0.19 0.015 285);
+  --muted-foreground: oklch(0.68 0.02 82);
+  --accent: oklch(0.55 0.24 300);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.36 0.025 84 / 45%);
+  --input: oklch(0.32 0.02 285);
+  --ring: oklch(0.78 0.105 84);
+  --gold: oklch(0.78 0.105 84);
+  --champagne: oklch(0.9 0.055 87);
+  --violet: oklch(0.58 0.25 300);
+  --success: oklch(0.67 0.16 151);
+  --success-foreground: oklch(0.99 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --hero-veil: oklch(0.08 0.01 285 / 62%);
+  --hero-veil-strong: oklch(0.08 0.01 285 / 94%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    outline-offset: 3px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+/* Respiration des grands titres : les mots se detachent, la ligne reste tenue.
+   A appliquer uniquement sur les titres, jamais sur le texte courant. */
+@utility display-wide {
+  word-spacing: 0.16em;
+  letter-spacing: 0.004em;
+  font-optical-sizing: auto;
+}
+
+@utility section-kicker {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 0.66rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.9rem, 6vw, 5.8rem);
+  line-height: 1.04;
+  word-spacing: 0.16em;
+  letter-spacing: 0.004em;
+  font-optical-sizing: auto;
+  & em {
+    color: var(--primary);
+    font-weight: 400;
+  }
+}
+
+@utility page-shell {
+  padding-top: 6.5rem;
+  padding-bottom: 6rem;
+  min-height: 75vh;
+  @media (width >= 48rem) {
+    padding-top: 9rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* La barre inferieure est en position fixe : on reserve sa hauteur en bas de
+   document, plus la zone systeme des telephones a encoche, pour qu'aucun
+   contenu ne finisse dessous. */
+@media (width < 48rem) {
+  body {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, var(--hero-veil-strong) 0%, var(--hero-veil) 45%, transparent 100%),
+    linear-gradient(0deg, var(--background) 0%, transparent 34%);
+}
+
+/* Confettis montes dans le DOM par lib/confetti.ts */
+.confetti-burst {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+.confetti-particle {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  pointer-events: none;
+}
+
+/* Decoupe caractere par caractere (components/Motion.tsx) */
+.split-text {
+  display: block;
+}
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.06em;
+}
+.split-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.split-accent {
+  color: var(--primary);
+  font-style: italic;
+}
+
+/* Preloader (components/Preloader.tsx) */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: var(--background);
+}
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: min(20rem, 78vw);
+}
+.preloader-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--primary);
+}
+.preloader-kicker {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--muted-foreground);
+}
+.preloader-counter {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--foreground);
+}
+.preloader-track {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+.preloader-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* Repli 2D du hero sur mobile (a la place de la scene WebGL) */
+.hero-fallback {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--primary);
+  animation-name: hero-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: translate3d(0, 12vh, 0) scale(0.6);
+  }
+  to {
+    transform: translate3d(2vw, -18vh, 0) scale(1.4);
+  }
+}
+
+/* Pastille de reduction sur les cartes produit */
+.product-card .badge-sale {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+}
+
+/* Saisie carte bancaire :urrence lisible */
+input[autocomplete="cc-number"] {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    background: linear-gradient(
+      0deg,
+      var(--hero-veil-strong) 0%,
+      var(--hero-veil) 70%,
+      transparent 100%
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Bouton WhatsApp flottant : halo pulsé, uniquement si l'utilisateur accepte
+   les animations. */
+.whatsapp-fab {
+  isolation: isolate;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .whatsapp-fab::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 9999px;
+    background: currentColor;
+    opacity: 0.35;
+    animation: whatsapp-pulse 2.8s ease-out infinite;
+  }
+}
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  70%,
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
