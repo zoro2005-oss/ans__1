@@ -27,7 +27,6 @@ export const Route = createFileRoute("/catalogue")({
         property: "og:description",
         content: "Tout pour composer une nuit inoubliable à Cotonou.",
       },
-      { property: "og:image", content: "/images/og-image.webp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

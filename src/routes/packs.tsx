@@ -5,6 +5,7 @@ import { SmartImage } from "@/components/SmartImage";
 import { Magnetic } from "@/components/Magnetic";
 import { Reveal, SplitTextOnScroll } from "@/components/Motion";
 import { formatPrice, partyPacks } from "@/data/products";
+import partyPackImage from "@/assets/party-pack.jpg";
 import { contactDetails, trustBadges } from "@/data/site";
 
 export const Route = createFileRoute("/packs")({
@@ -17,7 +18,6 @@ export const Route = createFileRoute("/packs")({
         property: "og:description",
         content: "Des formules prêtes à célébrer pour chaque nombre d’invités.",
       },
-      { property: "og:image", content: "/images/og-image.webp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -41,11 +41,10 @@ function PacksPage() {
             </p>
           </div>
           <SmartImage
-            src="/images/packs-banniere.webp"
-            alt="Buffet premium du Nouvel An avec champagne et décor doré"
+            src={partyPackImage}
+            alt="Table de réveillon noire et or dressée pour une soirée entre amis"
             width={1600}
-            height={900}
-            eager
+            height={912}
             className="aspect-[16/9] rounded-sm"
           />
         </div>

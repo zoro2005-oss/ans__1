@@ -191,6 +191,7 @@ export function CartDrawer() {
                   alt={item.imageAlt}
                   width={90}
                   height={90}
+                  style={{ objectPosition: item.imagePosition }}
                   className="h-24 w-20 shrink-0 rounded-sm"
                 />
               </Link>

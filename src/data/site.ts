@@ -1,4 +1,8 @@
 /** Contenus éditoriaux du site — textes et médias hors catalogue produits. */
+import collectionA from "@/assets/product-collection-a.jpg";
+import collectionB from "@/assets/product-collection-b.jpg";
+import partyPack from "@/assets/party-pack.jpg";
+import heroImage from "@/assets/newyear-hero.jpg";
 
 /** Réassurance affichée sous le hero. */
 export const trustBadges = [
@@ -29,7 +33,6 @@ export type Review = {
   name: string;
   city: string;
   quote: string;
-  avatar: string;
   rating: number;
 };
 
@@ -38,21 +41,18 @@ export const reviews: Review[] = [
     name: "Afi D.",
     city: "Cotonou",
     quote: "Tout était magnifique et livré à temps. Notre salon était méconnaissable.",
-    avatar: "/images/avis-afi-d.webp",
     rating: 5,
   },
   {
     name: "Marius K.",
     city: "Abomey-Calavi",
     quote: "Le pack Amis nous a évité tout le stress. Une vraie belle surprise.",
-    avatar: "/images/avis-marius-k.webp",
     rating: 5,
   },
   {
     name: "Nadia S.",
     city: "Porto-Novo",
     quote: "La sélection est chic, les détails soignés et le service très réactif.",
-    avatar: "/images/avis-nadia-s.webp",
     rating: 5,
   },
 ];
@@ -67,35 +67,43 @@ export const socialProof = {
 export type GalleryItem = {
   src: string;
   alt: string;
+  /** Recadrage `object-position`, pour varier les zones visibles d'une même photo. */
+  position: string;
   /** `tall` occupe deux lignes dans la grille. */
   tall?: boolean;
 };
 
 export const gallery: GalleryItem[] = [
   {
-    src: "/images/galerie-1.webp",
-    alt: "Amis qui trinquent à minuit dans un salon décoré noir et or",
+    src: heroImage,
+    position: "50% 42%",
+    alt: "Amis élégants célébrant le Nouvel An sur un toit à Cotonou",
   },
   {
-    src: "/images/galerie-2.webp",
-    alt: "Coin buffet doré où les invités se servent eux-mêmes",
+    src: partyPack,
+    position: "28% 60%",
+    alt: "Table de réveillon noire et or dressée pour une soirée entre amis",
   },
   {
-    src: "/images/galerie-3.webp",
-    alt: "Cadeau ouvert sous des guirlandes lumineuses",
+    src: collectionA,
+    position: "60% 40%",
+    alt: "Sélection cadeau et champagne en décor noir et or",
     tall: true,
   },
   {
-    src: "/images/galerie-4.webp",
-    alt: "Couple dansant dans un salon éclairé par une boule à facettes",
+    src: collectionB,
+    position: "30% 30%",
+    alt: "Tenue de soirée noire et accessoires dorés",
   },
   {
-    src: "/images/galerie-5.webp",
-    alt: "Gorge à sequins renvoyant des reflets violets et dorés",
+    src: collectionB,
+    position: "70% 78%",
+    alt: "Chaussures et nœud doré pour compléter la tenue",
   },
   {
-    src: "/images/galerie-6.webp",
-    alt: "Verres vides et confettis sur une table noire au lendemain du réveillon",
+    src: partyPack,
+    position: "74% 28%",
+    alt: "Vaisselle et décor de table assortis en noir et or",
   },
 ];
 

@@ -19,7 +19,6 @@ export const Route = createFileRoute("/panier")({
       },
       { property: "og:title", content: "Votre panier — Réveillon 31" },
       { property: "og:description", content: "Votre sélection pour le grand soir." },
-      { property: "og:image", content: "/images/og-image.webp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -82,6 +81,7 @@ function CartPage() {
                     alt={item.imageAlt}
                     width={120}
                     height={120}
+                    style={{ objectPosition: item.imagePosition }}
                     className="aspect-square rounded-sm"
                   />
                 </Link>

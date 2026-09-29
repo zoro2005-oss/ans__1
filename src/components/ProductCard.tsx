@@ -26,6 +26,7 @@ export function ProductCard({ product }: { product: Product }) {
           alt={product.imageAlt}
           width={1024}
           height={1024}
+          style={{ objectPosition: product.imagePosition }}
           className="aspect-square transition-transform duration-700 group-hover:scale-[1.04]"
         />
       </Link>

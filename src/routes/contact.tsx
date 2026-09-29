@@ -27,7 +27,6 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Parlons de votre soirée et composons une sélection sur mesure.",
       },
-      { property: "og:image", content: "/images/og-image.webp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

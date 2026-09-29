@@ -98,9 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Réveillon 31" },
       { property: "og:locale", content: "fr_FR" },
-      { property: "og:image", content: "/images/og-image.webp" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/images/og-image.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

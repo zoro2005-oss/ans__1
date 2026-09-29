@@ -31,7 +31,6 @@ export const Route = createFileRoute("/produit/$productId")({
         property: "og:description",
         content: loaderData?.description ?? "Ce produit n’est pas disponible.",
       },
-      { property: "og:image", content: loaderData?.image ?? "/images/og-image.webp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -129,7 +128,7 @@ function ProductPage() {
               alt={product.imageAlt}
               width={1024}
               height={1024}
-              eager
+              style={{ objectPosition: product.imagePosition }}
               className="aspect-square rounded-sm"
             />
           </div>

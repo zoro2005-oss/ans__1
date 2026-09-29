@@ -12,6 +12,8 @@ import {
   Truck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/newyear-hero.jpg";
+import partyPackImage from "@/assets/party-pack.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -49,10 +51,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Réveillon 31 — La fête commence ici" },
       { property: "og:description", content: "La sélection premium du Nouvel An au Bénin." },
-      { property: "og:image", content: "/images/og-image.webp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/images/og-image.webp" },
     ],
   }),
   component: HomePage,
@@ -224,13 +224,10 @@ function HomePage() {
     <div ref={root}>
       <section className="relative flex min-h-[92svh] items-end overflow-hidden pt-20">
         <SmartImage
-          src="/images/hero-reveillon.webp"
-          srcSet="/images/hero-reveillon-portrait.webp 900w, /images/hero-reveillon.webp 1920w"
-          sizes="100vw"
+          src={heroImage}
           alt="Amis élégants célébrant le Nouvel An sur un toit à Cotonou"
           width={1920}
-          height={1080}
-          eager
+          height={1088}
           data-parallax=""
           className="absolute inset-0 h-[112%] w-full"
         />
@@ -325,10 +322,10 @@ function HomePage() {
         <div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <figure data-parallax-slow="">
             <SmartImage
-              src="/images/packs-banniere.webp"
+              src={partyPackImage}
               alt="Table de réveillon noire et or dressée pour une soirée entre amis"
               width={1600}
-              height={900}
+              height={912}
               className="aspect-[4/3] rounded-sm"
             />
           </figure>
@@ -417,13 +414,12 @@ function HomePage() {
                 className="flex h-full flex-col border border-border p-6"
               >
                 <div className="flex items-center gap-3">
-                  <SmartImage
-                    src={review.avatar}
-                    alt={`Portrait de ${review.name}, cliente ${review.city}`}
-                    width={200}
-                    height={200}
-                    className="h-12 w-12 shrink-0 rounded-full"
-                  />
+                  <span
+                    aria-hidden="true"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-medium text-primary"
+                  >
+                    {review.name.charAt(0)}
+                  </span>
                   <div>
                     <p className="text-sm">{review.name}</p>
                     <p className="text-[0.7rem] text-muted-foreground">{review.city}</p>
@@ -476,8 +472,9 @@ function HomePage() {
                 <SmartImage
                   src={item.src}
                   alt={item.alt}
-                  width={800}
-                  height={1000}
+                  width={1024}
+                  height={1024}
+                  style={{ objectPosition: item.position }}
                   className="h-full w-full transition-transform duration-700 group-hover:scale-105"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-4 text-[0.7rem] text-foreground/90">
@@ -520,10 +517,10 @@ function HomePage() {
           <Reveal>
             <figure className="relative overflow-hidden rounded-sm">
               <SmartImage
-                src="/images/offre-banniere.webp"
-                alt="Coffret cadeau noir et or sous une lumière dorée"
+                src={partyPackImage}
+                alt="Buffet doré et décor noir pour le réveillon"
                 width={1600}
-                height={900}
+                height={912}
                 className="aspect-[16/9] w-full"
               />
               <figcaption className="absolute inset-0 flex flex-col items-start justify-center gap-5 bg-background/60 p-8 md:p-14">
